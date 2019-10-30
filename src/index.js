@@ -1,12 +1,41 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import ReactDom from 'react-dom';
+import "./index.css";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+function Books() {
+    return ( <section className="books" >
+            <Book />
+            <Book />
+            <Book />
+            <Book />
+            <Book />
+            <Book />
+            <Book />
+            <Book />
+        </section>
+    );
+}
+const Book = () =>{
+    return ( 
+        <article className="book" >
+            <CoverImage />
+            <Title /> 
+            <Author />
+        </article>
+    );
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const CoverImage = () => <img width="200" src="https://images-na.ssl-images-amazon.com/images/I/71uutVsAYxL._AC_UL480_SR318,480_.jpg" alt="donald trump" />
+
+const Title = () => <h1>The Plot Against The President</h1>
+
+const Author = () => <p style={authorStyle}>by LEE SMITH</p>
+
+const authorStyle = {
+    letterSpacing:"10px",
+    color:"green"
+};
+
+
+
+ReactDom.render( <Books/>, document.getElementById("root"));
